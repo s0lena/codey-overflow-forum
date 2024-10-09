@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Post.module.css";
+import Link from "next/link";
 
 type PostProps = {
   post: {
@@ -13,12 +14,12 @@ type PostProps = {
 export default function Post({ post: { userId, id, title, body } }: PostProps) {
   return (
     <div className={styles.container}>
-      <a href={"/questions/REPLACE"}>
+      <Link href={`/questions/${id}`}>
         <h2 className={styles.title}>{title}</h2>
-      </a>
+      </Link>
       <p>{body}</p>
       <small className={styles.info}>
-        <a href={"/users/REPLACE"}>User: {userId}</a>
+        <Link href={`/users/${userId}`}>User: {userId}</Link>
       </small>
     </div>
   );
